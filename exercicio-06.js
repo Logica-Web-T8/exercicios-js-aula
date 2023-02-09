@@ -24,3 +24,18 @@ const trabalhadores = [
 		cargo: "Consultor financeiro",
 	},
 ];
+
+
+let pessoa = null;
+
+trabalhadores.forEach(trabalhador => {
+  if(!pessoa){
+    pessoa = trabalhador;
+  }
+  
+  if(trabalhador.salario_bruto > pessoa.salario_bruto){
+    pessoa = trabalhador;
+  }
+})
+
+console.log(`${pessoa.nome} do cargo ${pessoa.cargo} tem o maior salario ${pessoa.salario_bruto.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' })}`);
